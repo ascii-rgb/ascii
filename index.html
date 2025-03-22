@@ -43,39 +43,45 @@
         </div>
     </nav>
     <div class="container" id="main-container">
-        <h1 id="main-title">Image For Ascii</h1>
+        <h1 id="main-title">IMAGE TO ASCII</h1>
         <div class="upload-box" onclick="document.getElementById('imageInput').click()">
             <i class="material-icons upload-icon">cloud_upload</i>
-            <div class="upload-text" id="upload-text">Upload Image For Transfer</div>
+            <div class="upload-text" id="upload-text">Upload Image to Convert</div>
             <div class="upload-line"></div>
         </div>
         <input type="file" id="imageInput" accept="image/*" style="display: none;">
         <div class="upload-instructions" id="upload-instructions">
-            <div class="instruction-box" data-description="Upload image to convert to symbols.">
+            <div class="instruction-box" data-description="Upload image to convert to ASCII art.">
                 <i class="material-icons instruction-icon">image</i>
-                <div class="instruction-text">Upload image to convert to symbols.</div>
+                <div class="instruction-text">Upload image to convert to ASCII art.</div>
             </div>
-            <div class="instruction-box" data-description="You can copy the code contained in the image.">
+            <div class="instruction-box" data-description="Copy the ASCII art with color codes.">
                 <i class="material-icons instruction-icon">content_copy</i>
-                <div class="instruction-text">You can copy the code contained in the image.</div>
+                <div class="instruction-text">Copy the ASCII art with color codes.</div>
             </div>
-            <div class="instruction-box" data-description="The site is secure from cyber vulnerabilities.">
-                <i class="material-icons instruction-icon">security</i>
-                <div class="instruction-text">The site is secure from cyber vulnerabilities.</div>
-            </div>
-            <div class="instruction-box" data-description="The site is secure from electronic attacks and even hacking.">
-                <i class="material-icons instruction-icon">lock</i>
-                <div class="instruction-text">The site is secure from electronic attacks and even hacking.</div>
+            <div class="instruction-box" data-description="Download the ASCII art as a text file.">
+                <i class="material-icons instruction-icon">download</i>
+                <div class="instruction-text">Download the ASCII art as a text file.</div>
             </div>
         </div>
         <div id="asciiArtContainer">
-            <div id="asciiArt"></div>
-            <button class="copy-btn" onclick="copyToClipboard()" style="display: none;">
+            <div id="asciiArtBW" class="ascii-art"></div>
+            <button class="copy-btn" onclick="copyToClipboard('asciiArtBW')" style="display: none;">
                 <i class="material-icons">content_copy</i> <span class="separator">|</span> <span class="copy-text">Copy Text</span>
             </button>
-            <button class="copy-btn download-btn" onclick="downloadAsciiArt()" style="display: none;">
+            <button class="copy-btn download-btn" onclick="downloadAsciiArt('asciiArtBW')" style="display: none;">
                 <i class="material-icons">download</i> <span class="separator">|</span> <span class="copy-text">Download Text</span>
             </button>
+            <div id="coloredSection" style="display: none;">
+                <h2>Colored ASCII Art</h2>
+                <div id="asciiArtColored" class="ascii-art"></div>
+                <button class="copy-btn" onclick="showLanguageModal('copy')" style="display: none;">
+                    <i class="material-icons">content_copy</i> <span class="separator">|</span> <span class="copy-text">Copy Text</span>
+                </button>
+                <button class="copy-btn download-btn" onclick="showLanguageModal('download')" style="display: none;">
+                    <i class="material-icons">download</i> <span class="separator">|</span> <span class="copy-text">Download Text</span>
+                </button>
+            </div>
         </div>
     </div>
     <div class="footer">
@@ -90,8 +96,8 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        This website converts images into Ascii art using modern web technologies.
-                        Developed By <strong>Zaid aL-Bayati</strong>of
+                        This website converts images into ASCII art using modern web technologies.
+                        Developed By <strong>Zaid aL-Bayati</strong>.
                     </p>
                     <p>
                         You can upload any image, and the site will instantly convert it into ASCII art.
@@ -100,9 +106,26 @@
             </div>
         </div>
     </div>
-    <div class="copy-notification" id="copyNotification">
-        <i class="material-icons">check</i> Done Cope 
+    <div class="language-modal" id="languageModal">
+        <div class="language-modal-content">
+            <span class="close-modal" onclick="hideLanguageModal()">&times;</span>
+            <h3>Select Language</h3>
+            <div class="language-option" onclick="handleLanguageSelection('python')">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python Logo" class="language-logo"> | Python
+            </div>
+            <div class="language-option" onclick="handleLanguageSelection('javascript')">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript Logo" class="language-logo"> | JavaScript
+            </div>
+            <div class="language-option" onclick="handleLanguageSelection('html')">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="HTML Logo" class="language-logo"> | HTML
+            </div>
+            <div class="language-option" onclick="handleLanguageSelection('css')">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="CSS Logo" class="language-logo"> | CSS
+            </div>
+        </div>
     </div>
+    <div class="copy-notification" id="copyNotification">
+        <i class="material-icons">check</i>Done Cope > </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
