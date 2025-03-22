@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     background-color: #fff;
     font-family: 'Poppins', sans-serif;
@@ -9,11 +8,10 @@ body {
 }
 
 body.night-mode {
-    background-color: #121212; /* Darker background for better contrast */
+    background-color: #121212;
     color: #f0f0f0;
 }
 
-/* Fixed Top Navbar with Blur Effect */
 .navbar {
     background-color: rgba(242, 48, 48, 0.9);
     padding: 10px 20px;
@@ -75,9 +73,8 @@ body.night-mode {
     margin: 0 5px;
 }
 
-/* Main Content */
 .container {
-    max-width: 1200px; /* Wider container for large screens */
+    max-width: 1200px;
     margin: 50px auto;
     padding: 40px 20px;
     text-align: center;
@@ -90,7 +87,7 @@ body.night-mode {
 }
 
 body.night-mode .container {
-    background-color: rgba(34, 34, 34, 0.9); /* Darker container for night mode */
+    background-color: rgba(34, 34, 34, 0.9);
     color: #f0f0f0;
 }
 
@@ -102,7 +99,6 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Upload Box (No Color Change, Only Icon and Text Effects) */
 .upload-box {
     background-color: rgba(248, 249, 250, 0.9);
     border: 2px dashed #ccc;
@@ -116,7 +112,7 @@ h1 {
 }
 
 body.night-mode .upload-box {
-    background-color: rgba(34, 34, 34, 0.9); /* Darker upload box for night mode */
+    background-color: rgba(34, 34, 34, 0.9);
     border-color: #555;
 }
 
@@ -158,7 +154,6 @@ body.night-mode .upload-text {
     width: 80%;
 }
 
-/* Upload Instructions */
 .upload-instructions {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -177,7 +172,7 @@ body.night-mode .upload-text {
 }
 
 body.night-mode .instruction-box {
-    background-color: rgba(34, 34, 34, 0.9); /* Darker instruction box for night mode */
+    background-color: rgba(34, 34, 34, 0.9);
 }
 
 .instruction-box:hover {
@@ -223,8 +218,7 @@ body.night-mode .instruction-text {
     bottom: 0;
 }
 
-/* ASCII Art Container */
-#asciiArt {
+.ascii-art {
     background-color: rgba(248, 249, 250, 0.9);
     color: #000;
     padding: 20px;
@@ -235,64 +229,54 @@ body.night-mode .instruction-text {
     overflow-x: auto;
     margin-top: 20px;
     border: 2px solid #F23030;
+    line-height: 1;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
-body.night-mode #asciiArt {
-    background-color: rgba(34, 34, 34, 0.9); /* Darker ASCII art container for night mode */
+body.night-mode .ascii-art {
+    background-color: rgba(34, 34, 34, 0.9);
     color: #f0f0f0;
     border-color: #555;
 }
 
-/* Buttons with Gradient and Hover Effects */
 .copy-btn, .download-btn {
     background: linear-gradient(45deg, #F23030, #FF6B6B);
     color: #fff;
     border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
+    padding: 12px 24px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     font-weight: 500;
     margin-top: 10px;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     width: 100%;
     max-width: 400px;
     margin: 20px auto;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     position: relative;
     overflow: hidden;
-}
-
-.copy-btn::before, .download-btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
-    transform: translate(-50%, -50%) rotate(45deg);
-    transition: transform 0.5s ease;
-    z-index: 0;
-}
-
-.copy-btn:hover::before, .download-btn:hover::before {
-    transform: translate(-50%, -50%) rotate(135deg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .copy-btn:hover, .download-btn:hover {
-    transform: scale(1.05);
+    transform: translateY(-2px);
     background: linear-gradient(45deg, #FF6B6B, #F23030);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.copy-btn span, .download-btn span {
-    position: relative;
-    z-index: 1;
+.copy-btn:active, .download-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer with Improved Alignment */
+.copy-btn i, .download-btn i {
+    font-size: 1.2rem;
+}
+
 .footer {
     text-align: center;
     margin-top: 40px;
@@ -308,7 +292,7 @@ body.night-mode #asciiArt {
 }
 
 body.night-mode .footer {
-    background-color: rgba(34, 34, 34, 0.9); /* Darker footer for night mode */
+    background-color: rgba(34, 34, 34, 0.9);
     color: #f0f0f0;
     border-top-color: #555;
 }
@@ -322,7 +306,6 @@ body.night-mode .footer {
     text-decoration: underline;
 }
 
-/* Loader */
 .loader {
     position: fixed;
     top: 0;
@@ -337,7 +320,7 @@ body.night-mode .footer {
 }
 
 body.night-mode .loader {
-    background-color: rgba(18, 18, 18, 0.9); /* Darker loader for night mode */
+    background-color: rgba(18, 18, 18, 0.9);
 }
 
 .jimu-primary-loading,
@@ -385,7 +368,6 @@ body.night-mode .loader {
     }
 }
 
-/* Copy Notification */
 .copy-notification {
     position: fixed;
     bottom: 20px;
@@ -421,4 +403,50 @@ body.night-mode .loader {
     to {
         transform: translateY(100%);
     }
+}
+
+.language-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.language-modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.language-option:hover {
+    background-color: #f0f0f0;
+}
+
+.language-logo {
+    width: 24px;
+    height: 24px;
+}
+
+.close-modal {
+    float: right;
+    cursor: pointer;
+    font-size: 24px;
 }
